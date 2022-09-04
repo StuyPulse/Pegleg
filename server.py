@@ -23,12 +23,11 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 
 NetworkTables.initialize()
-sd = NetworkTables.getTable("SmartDashboard")
+sd = NetworkTables.getTable("pegleg")
 
 i = 0
 while True:
-    print("dsTime:", sd.getNumber("dsTime", -1))
+    tx = sd.getNumber("horizontal-angle-error", 0.0)
+    ty = sd.getNumber("vertical-angle-error", 0.0)
 
-    sd.putNumber("robotTime", i)
-    time.sleep(1)
-    i += 1
+    print(tx, ty)

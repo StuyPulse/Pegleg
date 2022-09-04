@@ -21,3 +21,9 @@ with cond:
 
 # Insert your processing code here
 print("Connected!")
+
+pegleg = NetworkTables.getTable("pegleg")
+
+while True:
+    pegleg.putNumber("horizontal-angle-error", 6.94)
+    pegleg.putNumber("vertical-angle-error", 6.94)
